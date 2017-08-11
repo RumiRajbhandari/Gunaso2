@@ -19,4 +19,13 @@
     <string name="post">Post in Forum</string>
     <string name="forum">Forum</string>
     <string name="btn_linkToComplain">Complain Here</string>
+
+    <string-array name="email_arrays">
+        <item>priyanca.gyawali1@gmail.com</item>
+        <item>sushmagiri123@gmail.com</item>
+        <item>rupakkc003@gmail.com</item>
+        <item>priyanka.gyawali1@gmail.com</item>
+
+    </string-array>
+
 </resources>

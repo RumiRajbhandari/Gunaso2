@@ -10,34 +10,68 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.user.gunasofinal.ComplainActivity">
 
-    <EditText
-        android:id="@+id/send_to"
+    <TextView
+        android:id="@+id/txtchoose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/sent_to"
-        android:padding="10dp"/>
+        android:text="Choose an email"
+        android:textColor="#000"
+        android:textSize="18sp" />
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerTo"
+        android:padding="10dp"
+        android:entries="@array/email_arrays"
+        >
+    </Spinner>
+
+
     <EditText
         android:id="@+id/send_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/msg_head"
+        android:hint="Subject"
         android:padding="10dp"/>
     <EditText
         android:id="@+id/send_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/msg_body"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:layout_weight="0.27" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgbtn"
+        android:layout_gravity="center_horizontal"
+        android:drawableTop="@drawable/camera"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:text="Select a photo"
+        android:elevation="4dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="#fff"
+        />
+
+    <ListView
+        android:id="@+id/filelist"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:divider="#000"
+        android:dividerHeight="4px"/>
+
     <Button
         android:id="@+id/btn_send"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dip"
+        android:layout_marginTop="10dip"
         android:background="@color/colorPrimaryDark"
         android:text="@string/send"
         android:textAllCaps="false"
         android:textColor="@color/icons"
         android:textSize="15dp" />
+
     <Button
         android:id="@+id/btn_post"
         android:layout_width="fill_parent"
@@ -47,7 +81,6 @@
         android:text="@string/post"
         android:textAllCaps="false"
         android:textColor="@color/icons"
-        android:textSize="15dp"
-       />
+        android:textSize="15dp" />
 
 </LinearLayout>
