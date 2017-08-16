@@ -72,7 +72,7 @@ public class ForumFragment extends Fragment {
             public void handleResponse(List<Complain> response) {
                 // create a list for your data
                 complain= response;
-                adapter = new ForumAdapter(complain);
+                adapter = new ForumAdapter(complain,getContext());
                 recyclerView.setAdapter(adapter);
                 for (Complain complai:response
                         ) {

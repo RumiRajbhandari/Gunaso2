@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.async.callback.BackendlessCallback;
 import com.backendless.exceptions.BackendlessFault;
@@ -24,6 +25,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import static com.example.user.gunasofinal.R.id.imgbtn;
 
@@ -36,6 +38,7 @@ public class ComplainActivity extends AppCompatActivity {
     public String objectId;
     public String userid, to, head, body, datee;
     ListView listViewFiles;
+    BackendlessUser user;
 
     ArrayList<Uri> arrayUri = new ArrayList<Uri>();
     ArrayAdapter<Uri> myFileListAdapter;
@@ -52,8 +55,10 @@ public class ComplainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_complain);
 
         Bundle bundle = getIntent().getExtras();
-        userid = bundle.getString("rumi");
-
+        //userid = bundle.getString("rumi");
+        userid=bundle.getString("rumi");
+        Log.e(TAG, "user is "+userid.toString() );
+//        Log.e(TAG, "ComplainActivitya : "+user );
         txtChoose = (TextView) findViewById(R.id.txtchoose);
         spinner1 = (Spinner) findViewById(R.id.spinnerTo);
         txtHead = (EditText) findViewById(R.id.send_head);
@@ -161,21 +166,22 @@ public class ComplainActivity extends AppCompatActivity {
         head = txtHead.getText().toString();
         DateFormat df = new SimpleDateFormat("EEE, d MMM yyyy, HH:mm");
         datee = df.format(Calendar.getInstance().getTime());
-        Log.e(TAG, "userid3: " + userid);
-        //complain.setId(userid);
 
-        Backendless.Persistence.save(new Complain(to, head, body, datee, userid), new BackendlessCallback<Complain>() {
+
+        Complain complain=new Complain(to, head, body, datee,userid);
+
+        Backendless.Persistence.save(complain,new BackendlessCallback<Complain>() {
 
             @Override
             public void handleResponse(Complain response) {
                 Toast.makeText(ComplainActivity.this, "Posted in forum", Toast.LENGTH_SHORT).show();
                 objectId = response.getObjectId();
-                Log.e(TAG, "object id " + objectId);
+//                Log.e(TAG, "object id " + objectId);
                 Backendless.Persistence.of(Complain.class).findFirst(new AsyncCallback<Complain>() {
                     @Override
                     public void handleResponse(Complain response) {
-                        Log.e(TAG, "handleResponse:2 " + response.getBody());
-                        Log.e(TAG, "handleResponse:2 " + response.toString());
+//                        Log.e(TAG, "handleResponse:2 " + response.getBody());
+//                        Log.e(TAG, "handleResponse:2 " + response.toString());
                         Intent i = new Intent(ComplainActivity.this, ForumActivity.class);
                         startActivity(i);
                     }
@@ -188,6 +194,8 @@ public class ComplainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
 
 

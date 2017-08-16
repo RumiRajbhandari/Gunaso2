@@ -13,7 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_post"
-        android:text="@string/post"/>
+        android:text="@string/post"
+        android:background="@color/transparent"
+        android:textColor="@color/yellow"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/card_recycler_view"
         android:scrollbars="vertical"

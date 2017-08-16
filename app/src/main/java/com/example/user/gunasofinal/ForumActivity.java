@@ -6,7 +6,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.backendless.Backendless;
 import com.backendless.async.callback.AsyncCallback;
@@ -22,16 +26,21 @@ import java.util.List;
 
 public class ForumActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private List<Complain> complain;
+    private List<Complain> complains;
     private ForumAdapter adapter;
-TextView tvUser;
+
     String user;
+    String TAG="Tag";
+    Button action;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum);
         Intent intent=getIntent();
         Log.e("TAG", "onClick:2 ");
+
+        action=(Button)findViewById(R.id.upvote);
+
         recyclerView = (RecyclerView)findViewById(R.id.card_recycler_view);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
@@ -41,12 +50,13 @@ TextView tvUser;
         DataQueryBuilder dataQuery = DataQueryBuilder.create();
         dataQuery.setWhereClause( whereClause );
 
+
         Backendless.Persistence.of(Complain.class).find(new AsyncCallback<List<Complain>>() {
             @Override
             public void handleResponse(List<Complain> response) {
                 // create a list for your data
-                 complain= response;
-                adapter = new ForumAdapter(complain);
+                 complains= response;
+                adapter = new ForumAdapter(complains,getApplicationContext());
                 recyclerView.setAdapter(adapter);
 
 
@@ -67,6 +77,11 @@ TextView tvUser;
             }
         });
 
-
+ action.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ForumActivity.this, "hello", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

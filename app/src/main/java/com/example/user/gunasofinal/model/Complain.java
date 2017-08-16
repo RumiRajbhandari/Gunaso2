@@ -1,10 +1,14 @@
 package com.example.user.gunasofinal.model;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * Created by root on 7/18/17.
  */
-public class Complain {
-    private String to,body,datee,head,id,objectId;
+public class Complain implements Serializable {
+    private String to,body,datee,head,id,objectId,ownerId;
+    List<Likes> like;
 
     public Complain(){}
 
@@ -18,6 +22,34 @@ public class Complain {
         this.datee = date;
         this.head = head;
         this.id = id;
+    }
+
+    public Complain(String to,String head, String body, String date,  String id,String ownerId) {
+        this.to = to;
+        this.body = body;
+        this.datee = date;
+        this.head = head;
+        this.id = id;
+        this.ownerId=ownerId;
+    }
+
+
+    public List<Likes> getLike() {
+        return like;
+    }
+
+    public void setLike(List<Likes> like) {
+        this.like = like;
+    }
+
+
+
+    public String getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getObjectId() {
