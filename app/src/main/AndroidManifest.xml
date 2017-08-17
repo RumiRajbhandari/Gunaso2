@@ -31,9 +31,6 @@
             android:value="AIzaSyACd116A40wWgWhzbUDiyO7fpx55qLBJe4" />
 
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
-        <activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
@@ -47,6 +44,8 @@
         <activity android:name=".ForumActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUp" />
+        <activity android:name=".FirstProject"/>
+        <activity android:name=".SecondProject"/>
         <activity android:name=".ComplainDetail"></activity>
     </application>
 

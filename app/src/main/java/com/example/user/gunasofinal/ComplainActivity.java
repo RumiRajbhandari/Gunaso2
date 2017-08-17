@@ -25,7 +25,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import static com.example.user.gunasofinal.R.id.imgbtn;
 
@@ -130,8 +129,8 @@ public class ComplainActivity extends AppCompatActivity {
                 intent.setType("image/*");
             }
             startActivity(Intent.createChooser(intent, "Choice App to send email:"));
-            finish();
-            Log.i("Finished sending email", "");
+//            finish();
+//            Log.i("Finished sending email", "");
 
         }
     };

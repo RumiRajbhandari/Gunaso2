@@ -9,11 +9,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-import com.example.user.gunasofinal.ForumActivity;
 import com.example.user.gunasofinal.R;
 import com.example.user.gunasofinal.fragment.ComplainFragment;
+import com.example.user.gunasofinal.fragment.DetailFragment;
 import com.example.user.gunasofinal.fragment.ForumFragment;
-import com.example.user.gunasofinal.fragment.MapFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new MapFragment(), "Map");
+        adapter.addFragment(new DetailFragment(), "Project List");
         adapter.addFragment(new ComplainFragment(), "Complain");
         adapter.addFragment(new ForumFragment(), "Forum");
         viewPager.setAdapter(adapter);

@@ -18,8 +18,7 @@
             android:layout_height="wrap_content"
             android:text="Topic: "
             android:textColor="@color/yellow"
-            android:textSize="18sp"
-            />
+            android:textSize="18sp" />
         <TextView
             android:id="@+id/head"
             android:layout_width="match_parent"
